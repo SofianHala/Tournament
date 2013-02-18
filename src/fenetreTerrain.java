@@ -1,6 +1,13 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JTextField;
+import java.awt.BorderLayout;
+import javax.swing.JTextPane;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class fenetreTerrain {
@@ -35,8 +42,25 @@ public class fenetreTerrain {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnCreeUnTerrain = new JButton("Cree un terrain");
+		btnCreeUnTerrain.setBounds(169, 152, 142, 55);
+		frame.getContentPane().add(btnCreeUnTerrain);
+		
+		JButton btnNewButton = new JButton("Modifier");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(84, 241, 134, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Liste des terrains");
+		btnNewButton_1.setBounds(274, 241, 134, 23);
+		frame.getContentPane().add(btnNewButton_1);
+		frame.setBounds(100, 100, 528, 458);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
 }
