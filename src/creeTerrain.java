@@ -57,22 +57,22 @@ public class creeTerrain {
 		textField_1.setBounds(158, 108, 173, 22);
 		frame.getContentPane().add(textField_1);
 		
-		JButton btnNewButton_2 = new JButton("Cree");
+		JButton btnNewButton_2 = new JButton("Creer");
 		btnNewButton_2.setBounds(59, 183, 148, 46);
 		frame.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Pr\u00E9c\u00E9dent");
-		btnNewButton_3.setBounds(242, 206, 89, 23);
+		btnNewButton_3.setBounds(242, 206, 104, 23);
 		frame.getContentPane().add(btnNewButton_3);
 		
 		JLabel lblNewLabel = new JLabel("Type du terrain :");
-		lblNewLabel.setBounds(59, 112, 89, 14);
+		lblNewLabel.setBounds(43, 112, 105, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNomDuTerrain = new JLabel("Nom du terrain :");
-		lblNomDuTerrain.setBounds(59, 59, 89, 14);
+		lblNomDuTerrain.setBounds(43, 59, 105, 14);
 		frame.getContentPane().add(lblNomDuTerrain);
-		frame.setBounds(100, 100, 420, 307);
+		frame.setBounds(100, 100, 438, 307);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
