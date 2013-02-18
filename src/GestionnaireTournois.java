@@ -4,6 +4,10 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 
 public class GestionnaireTournois {
@@ -19,6 +23,20 @@ public class GestionnaireTournois {
 				try {
 					GestionnaireTournois window = new GestionnaireTournois();
 					window.frame.setVisible(true);
+					try{
+						Class.forName("com.mysql.jdbc.Driver"); // on charge le driver
+						Connection con = DriverManager.getConnection("jdbc:mysql://localhost/veterinaire","root","");
+						Statement stm = con.createStatement();
+						ResultSet res = stm.executeQuery("select * from animal;");
+							while(res.next())
+							{
+								System.out.println("Nom : "+res.getString("noma")+" Tatouage : "+res.getString("tatouage"));
+							}
+							con.close();
+						}
+					catch(Exception e){
+						System.out.println("Erreur : "+ e.getMessage());
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
