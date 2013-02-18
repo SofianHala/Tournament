@@ -11,7 +11,8 @@ import java.awt.event.ActionEvent;
 
 
 public class fenetreTerrain {
-
+	
+	private JButton btnCreeUnTerrain;
 	private JFrame frame;
 
 	/**
