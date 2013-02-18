@@ -1,12 +1,15 @@
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JList;
 
 
-public class FenetreTrounois {
-
+public class FenetreTrounois extends JFrame implements ActionListener{
+	
+	private JButton btnCrerUnNouveau;
 	private JFrame frame;
 
 	/**
@@ -41,9 +44,10 @@ public class FenetreTrounois {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnCrerUnNouveau = new JButton("Cr\u00E9er un nouveau tournois");
+		btnCrerUnNouveau = new JButton("Cr\u00E9er un nouveau tournois");
 		btnCrerUnNouveau.setBounds(39, 38, 175, 23);
 		frame.getContentPane().add(btnCrerUnNouveau);
+		btnCrerUnNouveau.addActionListener(this);
 		
 		JList list = new JList();
 		list.setBounds(39, 95, 216, 23);
@@ -52,5 +56,38 @@ public class FenetreTrounois {
 		JButton btnGrerLeTrounois = new JButton("G\u00E9rer le trounois");
 		btnGrerLeTrounois.setBounds(265, 95, 112, 23);
 		frame.getContentPane().add(btnGrerLeTrounois);
+		
+	}
+	public void actionPerformed(ActionEvent e)
+	{
+		//Permet d'afficher la ligne selectionné dans un label (String) permet de forcer la conversion
+		if(e.getSource() == btnCrerUnNouveau)
+		{
+			System.out.println("test");
+//			System.out.println("test");
+//			String nom = '\''+textNom.getText()+'\'';
+//			String naiss ='\''+txtAnne.getText()+'\'';
+//			String tat = '\''+textTat.getText()+'\'';
+//			String prop = '\''+(String)comboBoxP.getSelectedItem()+'\'';
+//			String race = '\''+textRace.getText()+'\'';
+//			Connection con;
+//			try {
+//				System.out.println("Creation....");
+//				con = DriverManager.getConnection("jdbc:mysql://localhost/veterinaire","root","");
+//			
+//			Statement stm = con .createStatement();
+//			int max = 0;
+//			ResultSet set = stm.executeQuery("select max(numa) from animal");
+//			set.next();
+//			max = Integer.parseInt(set.getString("max(numa)"));
+//			max++;
+//			stm.executeUpdate("insert into animal values ("+max+","+nom+","+naiss+","+tat+","+race+","+prop+");");
+//			} catch (SQLException e1) {
+//				// TODO Auto-generated catch block
+//				System.out.println("Erreur : "+e1);
+//			};
+		}
+//		else if (e.getSource() == comboBox) lblChoix.setText((String)comboBox.getSelectedItem());
 	}
 }
+
