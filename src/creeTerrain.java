@@ -1,11 +1,20 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
+import javax.swing.JLabel;
 
 
 public class creeTerrain {
 
 	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -35,8 +44,35 @@ public class creeTerrain {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
+		frame.getContentPane().setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(158, 55, 173, 22);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(158, 108, 173, 22);
+		frame.getContentPane().add(textField_1);
+		
+		JButton btnNewButton_2 = new JButton("Cree");
+		btnNewButton_2.setBounds(59, 183, 148, 46);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Pr\u00E9c\u00E9dent");
+		btnNewButton_3.setBounds(242, 206, 89, 23);
+		frame.getContentPane().add(btnNewButton_3);
+		
+		JLabel lblNewLabel = new JLabel("Type du terrain :");
+		lblNewLabel.setBounds(59, 112, 89, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNomDuTerrain = new JLabel("Nom du terrain :");
+		lblNomDuTerrain.setBounds(59, 59, 89, 14);
+		frame.getContentPane().add(lblNomDuTerrain);
+		frame.setBounds(100, 100, 420, 307);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
 }
