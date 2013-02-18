@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 
@@ -23,20 +24,47 @@ public class GestionnaireTournois {
 				try {
 					GestionnaireTournois window = new GestionnaireTournois();
 					window.frame.setVisible(true);
-					try{
-						Class.forName("com.mysql.jdbc.Driver"); // on charge le driver
-						Connection con = DriverManager.getConnection("jdbc:mysql://localhost/veterinaire","root","");
-						Statement stm = con.createStatement();
-						ResultSet res = stm.executeQuery("select * from animal;");
-							while(res.next())
-							{
-								System.out.println("Nom : "+res.getString("noma")+" Tatouage : "+res.getString("tatouage"));
-							}
-							con.close();
-						}
-					catch(Exception e){
-						System.out.println("Erreur : "+ e.getMessage());
-					}
+					
+					/*
+					 * 
+					 * 
+					 * 
+					 * public void actionPerformed(ActionEvent e)
+	{
+		//Permet d'afficher la ligne selectionné dans un label (String) permet de forcer la conversion
+		if(e.getSource() == btnAjout)
+		{
+			System.out.println("test");
+			String nom = '\''+textNom.getText()+'\'';
+			String naiss ='\''+txtAnne.getText()+'\'';
+			String tat = '\''+textTat.getText()+'\'';
+			String prop = '\''+(String)comboBoxP.getSelectedItem()+'\'';
+			String race = '\''+textRace.getText()+'\'';
+			Connection con;
+			try {
+				System.out.println("Creation....");
+				con = DriverManager.getConnection("jdbc:mysql://localhost/veterinaire","root","");
+			
+			Statement stm = con .createStatement();
+			int max = 0;
+			ResultSet set = stm.executeQuery("select max(numa) from animal");
+			set.next();
+			max = Integer.parseInt(set.getString("max(numa)"));
+			max++;
+			stm.executeUpdate("insert into animal values ("+max+","+nom+","+naiss+","+tat+","+race+","+prop+");");
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("Erreur : "+e1);
+			};
+		}
+		else if (e.getSource() == comboBox) lblChoix.setText((String)comboBox.getSelectedItem());
+	}
+}
+					 * 
+					 * 
+					 * */
+					
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
