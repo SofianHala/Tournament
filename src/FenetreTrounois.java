@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JComboBox;
 
 
 public class FenetreTrounois extends JFrame implements ActionListener{
@@ -49,13 +50,13 @@ public class FenetreTrounois extends JFrame implements ActionListener{
 		frame.getContentPane().add(btnCrerUnNouveau);
 		btnCrerUnNouveau.addActionListener(this);
 		
-		JList list = new JList();
-		list.setBounds(39, 95, 216, 23);
-		frame.getContentPane().add(list);
-		
 		JButton btnGrerLeTrounois = new JButton("G\u00E9rer le trounois");
 		btnGrerLeTrounois.setBounds(265, 95, 112, 23);
 		frame.getContentPane().add(btnGrerLeTrounois);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(39, 96, 214, 20);
+		frame.getContentPane().add(comboBox);
 		
 	}
 	public void actionPerformed(ActionEvent e)
@@ -63,7 +64,8 @@ public class FenetreTrounois extends JFrame implements ActionListener{
 		//Permet d'afficher la ligne selectionné dans un label (String) permet de forcer la conversion
 		if(e.getSource() == btnCrerUnNouveau)
 		{
-			System.out.println("test");
+			new CreerTournois();
+			frame.setVisible(false);
 //			System.out.println("test");
 //			String nom = '\''+textNom.getText()+'\'';
 //			String naiss ='\''+txtAnne.getText()+'\'';
