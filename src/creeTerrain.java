@@ -8,6 +8,8 @@ import javax.swing.JTextPane;
 import javax.swing.UIManager;
 import java.awt.SystemColor;
 import javax.swing.JLabel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class creeTerrain {
@@ -58,6 +60,11 @@ public class creeTerrain {
 		frame.getContentPane().add(textField_1);
 		
 		JButton btnNewButton_2 = new JButton("Creer");
+		btnNewButton_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+			}
+		});
 		btnNewButton_2.setBounds(59, 183, 148, 46);
 		frame.getContentPane().add(btnNewButton_2);
 		
