@@ -47,7 +47,7 @@ public class fenetreTerrain {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnCreeUnTerrain = new JButton("Cree un terrain");
-		btnCreeUnTerrain.setBounds(169, 152, 142, 55);
+		btnCreeUnTerrain.setBounds(107, 39, 142, 55);
 		frame.getContentPane().add(btnCreeUnTerrain);
 		
 		JButton btnNewButton = new JButton("Modifier");
@@ -55,13 +55,13 @@ public class fenetreTerrain {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(84, 241, 134, 23);
+		btnNewButton.setBounds(24, 118, 134, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Liste des terrains");
-		btnNewButton_1.setBounds(274, 241, 134, 23);
+		btnNewButton_1.setBounds(193, 118, 134, 23);
 		frame.getContentPane().add(btnNewButton_1);
-		frame.setBounds(100, 100, 528, 458);
+		frame.setBounds(100, 100, 372, 224);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
