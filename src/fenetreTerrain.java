@@ -14,7 +14,6 @@ import java.awt.event.MouseEvent;
 
 public class fenetreTerrain {
 	
-	private JButton btnCreeUnTerrain;
 	private JFrame frame;
 
 	/**
@@ -37,6 +36,7 @@ public class fenetreTerrain {
 	 * Create the application.
 	 */
 	public fenetreTerrain() {
+		System.out.println("test de batard");
 		initialize();
 	}
 
@@ -47,6 +47,7 @@ public class fenetreTerrain {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.getContentPane().setLayout(null);
+		
 		
 		JButton btnCreeUnTerrain = new JButton("Cree un terrain");
 		btnCreeUnTerrain.addMouseListener(new MouseAdapter() {

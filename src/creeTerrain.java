@@ -38,6 +38,7 @@ public class creeTerrain {
 	 * Create the application.
 	 */
 	public creeTerrain() {
+		System.out.println("test");
 		initialize();
 	}
 
@@ -69,6 +70,13 @@ public class creeTerrain {
 		frame.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Pr\u00E9c\u00E9dent");
+		btnNewButton_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				new fenetreTerrain();
+				frame.setVisible(false);
+			}
+		});
 		btnNewButton_3.setBounds(242, 206, 104, 23);
 		frame.getContentPane().add(btnNewButton_3);
 		
