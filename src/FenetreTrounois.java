@@ -124,6 +124,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -131,6 +132,8 @@ import javax.swing.table.TableModel;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 
 public class FenetreTrounois extends JFrame{
@@ -179,6 +182,29 @@ public class FenetreTrounois extends JFrame{
 		frame.getContentPane().add(tabbedPane);
 		
 		JPanel Gestion = new JPanel();
+		Gestion.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				Connection con;
+				try {
+					System.out.println("Creation....");
+					con = DriverManager.getConnection("jdbc:mysql://localhost/tournois","root","");
+				
+				Statement stm = con .createStatement();
+				ResultSet set = stm.executeQuery("select * from tournois");
+				while(set.next()){
+					DefaultTableModel model = (DefaultTableModel) table.getModel();
+					model.addRow(new Object[]{"Column 1", "Column 2", "Column 3"});
+					model.addRow((Vector) set);
+				}
+//				max = Integer.parseInt(set.getString("max(numa)"));
+//				max++;
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					System.out.println("Erreur : "+e1);
+				};
+			}
+		});
 		tabbedPane.addTab("Gerer un tournois", null, Gestion, null);
 		Gestion.setLayout(null);
 		
@@ -196,6 +222,28 @@ public class FenetreTrounois extends JFrame{
 		table.setAutoCreateRowSorter(true);
 		table.setCellSelectionEnabled(true);
 		table.setBounds(10, 45, 409, 144);
+		
+		Connection con;
+		try {
+			System.out.println("chargement....");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/tournois","root","");
+		
+		Statement stm = con .createStatement();
+		ResultSet set = stm.executeQuery("select * from tournois");
+		while(set.next()){
+			System.out.println(set);
+			System.out.println(set.getString(1));
+			DefaultTableModel model = (DefaultTableModel) table.getModel();
+			model.addRow(new Object[]{"Column 1", "Column 2", "Column 3"});
+			model.addRow((Vector) set);
+		}
+//		max = Integer.parseInt(set.getString("max(numa)"));
+//		max++;
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			System.out.println("Erreur : "+e1);
+		};
+		
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setSize(409, 147);
 		scrollPane.setLocation(10, 42);
@@ -277,6 +325,8 @@ public class FenetreTrounois extends JFrame{
 //				new CreerTournois();
 //				frame.setVisible(false);
 //				System.out.println("test");
+				
+				//Récupération des valeur des cases text et autre, ajout de cote simple : ' ' autour des valeurs
 				String nom = '\''+textFieldNom.getText()+'\'';
 				String type ='\''+textFieldType.getText()+'\'';
 				String dateD = '\''+textFieldDateD.getText()+'\'';
@@ -297,6 +347,7 @@ public class FenetreTrounois extends JFrame{
 //				set.next();
 //				max = Integer.parseInt(set.getString("max(numa)"));
 //				max++;
+				//Requete d'ajout d'un tournois
 				stm.executeUpdate("insert into tournois values (NULL,"+nom+","+type+","+dateD+","+dateF+","+nbEq+");");
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
