@@ -129,6 +129,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class FenetreTrounois extends JFrame{
@@ -206,6 +208,16 @@ public class FenetreTrounois extends JFrame{
 		comboBox.setBounds(10, 11, 205, 20);
 		Gestion.add(comboBox);
 		
+		JButton button = new JButton("New button");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				System.out.println("test1");
+			}
+		});
+		button.setBounds(42, 200, 89, 23);
+		Gestion.add(button);
+		
 		
 		
 		JPanel Creation = new JPanel();
@@ -270,6 +282,7 @@ public class FenetreTrounois extends JFrame{
 				String dateD = '\''+textFieldDateD.getText()+'\'';
 				String dateF = '\''+textFieldDateF.getText()+'\'';
 				String nbEq = '\''+textFieldDateD.getText()+'\'';
+				nbEq = '\''+"12"+'\'';
 //				String prop = '\''+(String)comboBoxP.getSelectedItem()+'\'';
 				System.out.println("Insertion dans la table : "+nom+" | "+type+" | "+dateD+" | "+dateF+" | "+nbEq);
 				//Partie sql TODO : SQL INSERT + UPDATE 
@@ -284,7 +297,7 @@ public class FenetreTrounois extends JFrame{
 //				set.next();
 //				max = Integer.parseInt(set.getString("max(numa)"));
 //				max++;
-				stm.executeUpdate("insert into Tournois values ("+nom+","+type+","+dateD+","+dateF+","+nbEq+");");
+				stm.executeUpdate("insert into tournois values (NULL,"+nom+","+type+","+dateD+","+dateF+","+nbEq+");");
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					System.out.println("Erreur : "+e1);
