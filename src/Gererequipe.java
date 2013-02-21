@@ -9,6 +9,8 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import java.awt.event.ActionListener;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 
 public class Gererequipe extends JFrame {
@@ -37,7 +39,7 @@ public class Gererequipe extends JFrame {
 	 */
 	public Gererequipe() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 227, 301);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -56,6 +58,15 @@ public class Gererequipe extends JFrame {
 		contentPane.add(btnCancel);
 		
 		JButton btnCrerUnquipe = new JButton("Cr\u00E9er un \u00E9quipe");
+		btnCrerUnquipe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnCrerUnquipe.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				
+			}
+		});
 		btnCrerUnquipe.setBounds(37, 43, 133, 23);
 		contentPane.add(btnCrerUnquipe);
 	}
